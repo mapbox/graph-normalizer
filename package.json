@@ -1,0 +1,31 @@
+{
+  "name": "graph-normalizer",
+  "version": "1.0.0",
+  "description": "Takes nodes and ways and turn them into a normalized graph of intersections and ways.",
+  "main": "index.js",
+  "engines": {
+    "node": "4.4.3"
+  },
+  "scripts": {
+    "test": "npm run lint && tap test/*.test.js",
+    "lint": "eslint '*.js' './**/*.js'",
+    "fix": "eslint --fix '*.js' './**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "null"
+  },
+  "keywords": [
+    "graph"
+  ],
+  "author": "benjamintd",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^3.3.1",
+    "eslint-config-mourner": "^2.0.1",
+    "tap": "^6.3.2"
+  },
+  "dependencies": {
+    "tilebelt": "^1.0.1"
+  }
+}

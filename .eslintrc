@@ -1,0 +1,6 @@
+{
+  "extends": "mourner",
+  "rules": {
+    "indent": ["error", 2]
+  }
+}
