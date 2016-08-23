@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.com/mapbox/graph-normalizer.svg?token=L2z9Dgm3tWM4E4xpoHDL&branch=master)](https://travis-ci.com/mapbox/graph-normalizer)
 
+![Yay!](https://cloud.githubusercontent.com/assets/11202803/17905168/deabdd2a-6926-11e6-9c86-70e8dbf36d98.png)
+
+
 Takes nodes and ways in input and turn them into a graph object.
 
 A graph is an object of this form:
