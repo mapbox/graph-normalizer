@@ -1,5 +1,7 @@
 # Graph-normalizer
 
+[![Build Status](https://travis-ci.com/mapbox/graph-normalizer.svg?token=L2z9Dgm3tWM4E4xpoHDL&branch=master)](https://travis-ci.com/mapbox/graph-normalizer)
+
 Takes nodes and ways in input and turn them into a graph object.
 
 A graph is an object of this form:
