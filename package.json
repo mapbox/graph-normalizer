@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "null"
+    "url": "https://github.com/mapbox/graph-normalizer"
   },
   "keywords": [
     "graph"
