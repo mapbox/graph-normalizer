@@ -8,11 +8,11 @@ var tile = require('./fixtures/tile.json');
 
 test('index', function (assert) {
   var graph = graphNormalizer.normalizeGraph(nodes, ways, tile);
-  assert.equal(Object.keys(graph.intersections).length, 8);
+  assert.equal(Object.keys(graph.intersections).length, 12);
   assert.equal(Object.keys(graph.ways).length, 34);
   var otherGraph = graphNormalizer.createGraph(nodes, ways, tile);
   graphNormalizer.splitIntersections(otherGraph);
   graphNormalizer.mergeIntersections(otherGraph);
-  assert.equal(Object.keys(otherGraph.ways).length, 17);
+  assert.equal(Object.keys(otherGraph.ways).length, 20);
   assert.end();
 });
