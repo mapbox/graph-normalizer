@@ -10,7 +10,7 @@ var tile = require('./fixtures/tile.json');
 
 test('create intersection hash', function (assert) {
   var graph = createGraph(nodes, ways, tile);
-  assert.equal(Object.keys(graph.intersections).length, 8, 'Eight intersections in the tile.');
+  assert.equal(Object.keys(graph.intersections).length, 12, 'Twelve intersections in the tile (8 + 4 terminal points).');
   assert.equal(Object.keys(graph.ways).length, ways.length + 1, 'There is one MultiLineString way.');
   Object.keys(graph.ways).forEach(function (key) {
     var way = graph.ways[key];
