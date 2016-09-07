@@ -2,6 +2,7 @@
 
 var test = require('tap').test;
 var splitIntersections = require('../lib/split-intersections');
+var selfIntersecting = require('./fixtures/self-intersecting');
 var graph = require('./fixtures/graph.json');
 var clone = require('../lib/clone');
 
@@ -15,5 +16,14 @@ test('split intersections', function (assert) {
       assert.true(g.intersections[node] === undefined, 'no middle node is an intersection.');
     }
   });
+  assert.end();
+});
+
+
+test('split intersections -- self intersect', function (assert) {
+  var g = clone(selfIntersecting);
+  splitIntersections(g);
+
+  assert.deepEqual(g, selfIntersecting, 'nothing split on self-intersections');
   assert.end();
 });
