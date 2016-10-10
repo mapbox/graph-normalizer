@@ -1,0 +1,29 @@
+[
+  {
+    "type":"Feature",
+    "geometry":
+    {
+      "type":"LineString",
+      "coordinates":[[123.1,32.3],[123.2,32.4],[123.2,32.8],[121.6,32.49]]
+    },
+    "properties":{"refs":["43","44","45","46"]}
+  },
+  {
+    "type":"Feature",
+    "geometry":
+    {
+      "type":"LineString",
+      "coordinates":[[123.43,32.45],[123.26,32.62],[123.543,32.45]]
+    },
+    "properties":{"refs":["47","48","49"]}
+  },
+  {
+    "type":"Feature",
+    "geometry":
+    {
+      "type":"LineString",
+      "coordinates":[[123.75,32.75],[123.233,32.76],[123.56,32.34]]
+    },
+    "properties":{"refs":["41","42","46"]}
+  }
+]
