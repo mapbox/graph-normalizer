@@ -1,0 +1,77 @@
+[
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "123",
+      "refs": [
+        "1",
+        "2"
+      ],
+      "oneway": 0,
+      "highway": "freeway"
+    },
+    "geometry": {
+      "type": "LineString",
+      "coordinates": [
+        [
+          10.121197700500488,
+          48.28707663414987
+        ],
+        [
+          10.125274658203125,
+          48.28790474610689
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "234",
+      "refs": [
+        "2",
+        "3"
+      ],
+      "oneway": 0,
+      "highway": "freeway"
+    },
+    "geometry": {
+      "type": "LineString",
+      "coordinates": [
+        [
+          10.125274658203125,
+          48.28790474610689
+        ],
+        [
+          10.12986660003662,
+          48.289218275462225
+        ]
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": "345",
+      "refs": [
+        "3",
+        "4"
+      ],
+      "oneway": 0,
+      "highway": "freeway"
+    },
+    "geometry": {
+      "type": "LineString",
+      "coordinates": [
+        [
+          10.12986660003662,
+          48.289218275462225
+        ],
+        [
+          10.132913589477539,
+          48.29067454025491
+        ]
+      ]
+    }
+  }
+]

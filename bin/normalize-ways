@@ -1,0 +1,69 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var byline = require('byline');
+var fs = require('graceful-fs');
+var path = require('path');
+var pairsToWays = require('../lib/pairs-to-ways');
+var indexWay = require('../lib/index-way');
+var splitWays = require('../lib/split-ways');
+var mergeWays = require('../lib/merge-ways');
+var argv = require('minimist')(process.argv.slice(2));
+
+var quadHash = {};
+
+var outputPath = argv.outputPath;
+var waysFile = argv.waysFile;
+var zoomLevel = argv.zoomLevel;
+
+var waysStream = byline(fs.createReadStream(waysFile), {encoding: 'utf8'});
+
+waysStream.on('data', function (line) {
+  // hash ways into the quadHash
+
+  var way = JSON.parse(line);
+
+  // parse refs if they are in string format
+  if (typeof way.properties.refs === 'string') {
+    way.properties.refs = way.properties.refs.split(',');
+  }
+
+  // throw out ways that have a different number of refs vs coordinates
+  if (way.geometry.coordinates.length === way.properties.refs.length) {
+    // index the way's segments into z14 tiles
+    var tileQuadkeys = indexWay(way, zoomLevel);
+
+    // Consolidate each quadkey's pairs into way slices,
+    // and add them to the quadHash, a hash from quadkey to ways.
+    Object.keys(tileQuadkeys).forEach(function (quadkey) {
+      var pairs = tileQuadkeys[quadkey];
+      var tileWays = pairsToWays(pairs);
+      for (var k = 0, n = tileWays.length; k < n; k++) {
+        var tileWay = tileWays[k];
+
+        // Differenciate each part of the way by appending to its id
+        tileWay.properties.id = way.properties.id + ';' + quadkey + '|' + k;
+
+        // persist the highway and oneway tags
+        tileWay.properties.highway = way.properties.highway;
+        tileWay.properties.oneway = way.properties.oneway;
+        if (quadHash[quadkey] === undefined) quadHash[quadkey] = [];
+        quadHash[quadkey].push(tileWay);
+      }
+    });
+  }
+
+}).on('end', function () {
+  // once all ways are processed, normalize each
+  // quadkey's ways and write them to disk.
+
+  Object.keys(quadHash).forEach(function (quadkey) {
+    var ways = quadHash[quadkey];
+
+    ways = splitWays(ways);
+    ways = mergeWays(ways);
+
+    fs.writeFile(path.join(outputPath, quadkey + '.json'), ways.map(JSON.stringify).join('\n'));
+  });
+});
