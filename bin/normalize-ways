@@ -30,7 +30,7 @@ waysStream.on('data', function (line) {
   }
 
   // throw out ways that have a different number of refs vs coordinates
-  if (way.geometry.coordinates.length === way.properties.refs.length) {
+  if (way.properties.refs !== undefined && way.geometry.coordinates.length === way.properties.refs.length) {
     // index the way's segments into z14 tiles
     var tileQuadkeys = indexWay(way, zoomLevel);
 
