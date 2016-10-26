@@ -4,18 +4,21 @@
 
 var fs = require('graceful-fs'); // avoids errors linked to too many file descriptors / open files
 var path = require('path');
-var byline = require('byline');
+var readline = require('readline');
 var cover = require('tile-cover');
 var lineString = require('turf-linestring');
 var argv = require('minimist')(process.argv.slice(2));
 
 var OUTPUTPATH = argv.outputPath;
 var ZOOM = argv.zoomLevel || 14;
-var FILE = argv.waysFile;
 
-var waysStream = byline(fs.createReadStream(FILE), {encoding: 'utf8'});
+var rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  terminal: false
+});
 
-waysStream.on('data', function (line) {
+rl.on('line', function (line) {
 
   var way = JSON.parse(line);
   // index the way's segments into tiles of given zoom level
