@@ -43,7 +43,7 @@ waysStream.on('data', function (line) {
         var tileWay = tileWays[k];
 
         // Differenciate each part of the way by appending to its id
-        tileWay.properties.id = way.properties.id + ';' + quadkey + '|' + k;
+        tileWay.properties.id = way.properties.id + '|' + k;
 
         // persist the highway and oneway tags
         tileWay.properties.highway = way.properties.highway;
@@ -64,6 +64,10 @@ waysStream.on('data', function (line) {
     ways = splitWays(ways);
     ways = mergeWays(ways);
 
-    fs.writeFile(path.join(outputPath, quadkey + '.json'), ways.map(JSON.stringify).join('\n'));
+    fs.writeFile(path.join(outputPath, quadkey + '.json'), ways.map(function (way) {
+      // append quadkey to way id
+      way.properties.id = way.properties.id + ';' + quadkey;
+      return JSON.stringify(way);
+    }).join('\n'));
   });
 });
