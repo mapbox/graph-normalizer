@@ -5,10 +5,10 @@
 var byline = require('byline');
 var fs = require('graceful-fs');
 var path = require('path');
-var pairsToWays = require('../lib/pairs-to-ways');
 var indexWay = require('../lib/index-way');
 var splitWays = require('../lib/split-ways');
 var mergeWays = require('../lib/merge-ways');
+var selectTileWays = require('../lib/select-tile-ways');
 var argv = require('minimist')(process.argv.slice(2));
 
 var quadHash = {};
@@ -34,23 +34,9 @@ waysStream.on('data', function (line) {
     // index the way's segments into z14 tiles
     var tileQuadkeys = indexWay(way, zoomLevel);
 
-    // Consolidate each quadkey's pairs into way slices,
-    // and add them to the quadHash, a hash from quadkey to ways.
     Object.keys(tileQuadkeys).forEach(function (quadkey) {
-      var pairs = tileQuadkeys[quadkey];
-      var tileWays = pairsToWays(pairs);
-      for (var k = 0, n = tileWays.length; k < n; k++) {
-        var tileWay = tileWays[k];
-
-        // Differenciate each part of the way by appending to its id
-        tileWay.properties.id = way.properties.id + '|' + k;
-
-        // persist the highway and oneway tags
-        tileWay.properties.highway = way.properties.highway;
-        tileWay.properties.oneway = way.properties.oneway;
-        if (quadHash[quadkey] === undefined) quadHash[quadkey] = [];
-        quadHash[quadkey].push(tileWay);
-      }
+      if (quadHash[quadkey] === undefined) quadHash[quadkey] = [];
+      quadHash[quadkey] = quadHash[quadkey].concat(tileQuadkeys[quadkey]);
     });
   }
 
@@ -63,6 +49,7 @@ waysStream.on('data', function (line) {
 
     ways = splitWays(ways);
     ways = mergeWays(ways);
+    ways = selectTileWays(quadkey, ways, zoomLevel);
 
     fs.writeFile(path.join(outputPath, quadkey + '.json'), ways.map(function (way) {
       // append quadkey to way id

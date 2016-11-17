@@ -27,6 +27,7 @@
     "minimist": "^1.2.0",
     "through2": "^2.0.1",
     "tile-cover": "^3.0.1",
+    "tilebelt": "^1.0.1",
     "turf-linestring": "^1.0.2"
   },
   "devDependencies": {
