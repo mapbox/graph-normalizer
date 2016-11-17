@@ -4,7 +4,7 @@ var test = require('tap').test;
 var selectTileWays = require('../lib/select-tile-ways');
 var path = require('path');
 
-var way = require(path.join(__dirname, 'fixtures', 'index-way', 'way.json'));
+var way = require(path.join(__dirname, 'fixtures', 'select-tile-ways', 'way.json'));
 var wayQuadkeys =  [
   '02301020333302',
   '02301020333303',
