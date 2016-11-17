@@ -11,15 +11,15 @@ var result = require(path.join(__dirname, 'fixtures', 'index-way', 'result.json'
 
 test('index-way', function (t) {
   var r = indexWay(way);
-  t.equals(Object.keys(r).length, 4, '4 tiles have segments');
+  t.equals(Object.keys(r).length, 16, 'all neighboring tiles are returned');
   t.same(r, result);
   t.end();
 });
 
 test('index-way z13', function (t) {
   var r = indexWay(way, 13);
-  t.equals(Object.keys(r).length, 1, 'only one tile returned');
+  t.equals(Object.keys(r).length, 9, 'all neighboring tiles are returned');
   var r2 = indexWay(wayZ13, 13);
-  t.equals(Object.keys(r2).length, 1, 'way in 2 z13 tiles.');
+  t.equals(Object.keys(r2).length, 9, 'all neighboring tiles are returned');
   t.end();
 });
