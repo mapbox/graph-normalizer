@@ -16,7 +16,7 @@ test('profile cli', function (t) {
   exec(cmd, function (err, stdout, stderr) {
     t.notOk(err, 'did not throw an error');
     t.notOk(stderr, 'did not write to stderr');
-    t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 541, 'Good number of files created.');
+    t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 1321, 'Good number of files created.');
     var a = fs.readFileSync(path.join(__dirname, '../test_output/02132212323223.json'), {encoding: 'utf8'});
     var b = fs.readFileSync(path.join(__dirname, 'fixtures/normalize-ways/02132212323223.json'), {encoding: 'utf8'});
     t.equals(a, b, 'The output file matches expected');

@@ -2,61 +2,23 @@
 
 'use strict';
 
-var byline = require('byline');
 var fs = require('graceful-fs');
 var path = require('path');
-var indexWay = require('../lib/index-way');
-var getCoveringQuadkeys = require('../lib/cover-quadkeys');
-var getNeighborhoodQuadkeys = require('../lib/neighborhood-quadkeys');
-var splitWays = require('../lib/split-ways');
-var mergeWays = require('../lib/merge-ways');
-var selectTileWays = require('../lib/select-tile-ways');
+var tilebelt = require('tilebelt');
+var normalizer = require('../lib/normalize-ways');
 var argv = require('minimist')(process.argv.slice(2));
-
-var quadToNormalize = {};
-var quadHash = {};
 
 var outputPath = argv.outputPath;
 var waysFile = argv.waysFile;
 var zoomLevel = argv.zoomLevel;
 
-var waysStream = byline(fs.createReadStream(waysFile), {encoding: 'utf8'});
+normalizer.createQuadkeyWaysHash(waysFile, zoomLevel, function (err, quadHash) {
+  if (err) throw err;
 
-waysStream.on('data', function (line) {
-  // hash ways into the quadHash
-
-  var way = JSON.parse(line);
-
-  // parse refs if they are in string format
-  if (typeof way.properties.refs === 'string') {
-    way.properties.refs = way.properties.refs.split(',');
-  }
-
-  // throw out ways that have a different number of refs vs coordinates
-  if (way.properties.refs !== undefined && way.geometry.coordinates.length === way.properties.refs.length) {
-    // getting covering tiles and neighbors
-    var coverQuadkeys = getCoveringQuadkeys(way, zoomLevel);
-    var neighborhoodQuadkeys = getNeighborhoodQuadkeys(coverQuadkeys);
-
-    // indexing way in its covering tiles and neighbors
-    indexWay(way, neighborhoodQuadkeys, quadHash);
-
-    // keeping track of quadkeys we want to normalize
-    for (var i = 0; i < coverQuadkeys.length; i++) {
-      quadToNormalize[coverQuadkeys[i]] = 1;
-    }
-  }
-
-}).on('end', function () {
-  // once all ways are processed, normalize each
-  // quadkey's ways and write them to disk.
-
-  Object.keys(quadToNormalize).forEach(function (quadkey) {
+  Object.keys(quadHash).forEach(function (quadkey) {
+    var tile = tilebelt.quadkeyToTile(quadkey);
     var ways = quadHash[quadkey];
-
-    ways = splitWays(ways);
-    ways = mergeWays(ways);
-    ways = selectTileWays(quadkey, ways, zoomLevel);
+    ways = normalizer.normalizeWays(ways, tile);
 
     fs.writeFile(path.join(outputPath, quadkey + '.json'), ways.map(function (way) {
       // append quadkey to way id
