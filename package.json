@@ -24,6 +24,7 @@
     "byline": "^5.0.0",
     "concat-stream": "^1.5.2",
     "crypto": "0.0.3",
+    "d3-queue": "^3.0.3",
     "graceful-fs": "^4.1.9",
     "minimist": "^1.2.0",
     "through2": "^2.0.1",
