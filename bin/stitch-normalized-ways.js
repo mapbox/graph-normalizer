@@ -8,6 +8,8 @@ var through2 = require('through2');
 var tileReduce = require('tile-reduce');
 var tilebelt = require('tilebelt');
 var stitcher = require('../lib/stitch-ways');
+var unidirectionalWays = require('../lib/unidirectional-ways');
+
 
 function loadWays(wayPath, done) {
   var ways = [];
@@ -22,9 +24,6 @@ function loadWays(wayPath, done) {
   .pipe(through2(function (chunk, enc, next) {
     var way = JSON.parse(chunk);
 
-    // removing tile id
-    // way.properties.id = way.properties.id.split(';')[0];
-
     var zoomLevel = 14;
 
     var coverQuadkeys = cover.indexes({type: 'LineString', coordinates: way.geometry.coordinates}, {
@@ -35,7 +34,10 @@ function loadWays(wayPath, done) {
     if (coverQuadkeys.length > 1) {
       ways.push(way);
     } else {
-      console.log(JSON.stringify(way));
+      var duplicatedWays = unidirectionalWays([way]);
+      for (var i = 0; i < duplicatedWays.length; i++) {
+        process.stdout.write(JSON.stringify(duplicatedWays[i]) + '\n');
+      }
     }
     next();
   }));
@@ -47,6 +49,6 @@ loadWays('./data/merged3.json', function (err, ways) {
   ways = stitcher(ways);
   for (var i = 0; i < ways.length; i++) {
     var way = ways[i];
-    console.log(JSON.stringify(way));
+    process.stdout.write(JSON.stringify(way) + '\n');
   }
 });

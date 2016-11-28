@@ -13,7 +13,6 @@ test('stitch-ways', function (t) {
     var after = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/stitch-ways/', fixture, 'after')));
 
     var result = stitchWays(before);
-
     t.deepEqual(result, after, fixture + ' output matches expected result');
   });
 

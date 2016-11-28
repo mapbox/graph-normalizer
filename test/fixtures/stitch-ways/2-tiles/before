@@ -25,7 +25,7 @@
           "89637246",
           "89637250"
         ],
-        "oneway": 0,
+        "oneway": 1,
         "highway": "residential",
         "hash": "a165d72800407ec6783da2e5b4dbf17d"
       }
@@ -66,7 +66,7 @@
           "89637254",
           "89637256"
         ],
-        "oneway": 0,
+        "oneway": 1,
         "highway": "residential",
         "hash": "357b37107185c16c4e9d57641e550464"
       }
