@@ -37,6 +37,8 @@ function loadWays(wayPath, done) {
     } else {
       var duplicatedWays = unidirectionalWays([way]);
       for (var i = 0; i < duplicatedWays.length; i++) {
+        // putting refs as string for tippecanoe
+        duplicatedWays[i].properties.refs = String(duplicatedWays[i].properties.refs);
         process.stdout.write(JSON.stringify(duplicatedWays[i]) + '\n');
       }
     }
@@ -50,6 +52,8 @@ loadWays(waysFile, function (err, ways) {
   ways = stitchWays(ways);
   for (var i = 0; i < ways.length; i++) {
     var way = ways[i];
+    // putting refs as string for tippecanoe
+    way.properties.refs = String(way.properties.refs);
     process.stdout.write(JSON.stringify(way) + '\n');
   }
 });
