@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/graph-normalizer",
-  "version": "2.0.7-1",
+  "version": "2.0.7-2",
   "description": "Takes nodes and ways and turn them into a normalized graph of intersections and ways.",
   "bin": "./bin/normalize-ways",
   "engines": {
