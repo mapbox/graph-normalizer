@@ -1,15 +1,16 @@
+#!/usr/bin/env node --max_old_space_size=4096
+
 'use strict';
 
 var fs = require('graceful-fs');
-var path = require('path');
 var cover = require('tile-cover');
 var byline = require('byline');
 var through2 = require('through2');
-var tileReduce = require('tile-reduce');
-var tilebelt = require('tilebelt');
-var stitcher = require('../lib/stitch-ways');
+var stitchWays = require('../lib/stitch-ways');
 var unidirectionalWays = require('../lib/unidirectional-ways');
+var argv = require('minimist')(process.argv.slice(2));
 
+var waysFile = argv.waysFile;
 
 function loadWays(wayPath, done) {
   var ways = [];
@@ -43,10 +44,10 @@ function loadWays(wayPath, done) {
   }));
 }
 
-loadWays('./data/merged3.json', function (err, ways) {
+loadWays(waysFile, function (err, ways) {
   if (err) throw err;
 
-  ways = stitcher(ways);
+  ways = stitchWays(ways);
   for (var i = 0; i < ways.length; i++) {
     var way = ways[i];
     process.stdout.write(JSON.stringify(way) + '\n');

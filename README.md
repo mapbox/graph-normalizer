@@ -47,3 +47,23 @@ The algorithm follows this workflow:
 - **Splitting** - Having the ways from each quadkey, `graph-normalizer` then splits the ways that traverse an intersection into two. `!<i>` is appended to the way id where `i` is the index of the split way in the original geometry.
 
 - **Merging** - Ways that share a node which is not an intersection (only 2 way owners) are merged together. The resulting id is `<wayOne>,<wayTwo>`.
+
+### Stitching
+
+One car work at lower zoom level by stitching neighbors normalized graphs at zoom level 14. The output is merging cutted ways on the boundaries and duplicate ways. This is especially useful for [turn-analysis](https://github.com/mapbox/turn-analysis).
+
+One can first concatenate normalized ways geojson file into one
+
+```
+node_modules/graph-normalizer/util/concatenate-files \
+  --waysDir <directory of unzipped normalized ways geojson files> > <desired output path>
+```
+
+Then use this output to generate the graph
+
+```
+node_modules/graph-normalizer/bin/stitch-normalized-ways \
+  --waysFile <geojson line-delimited concatenaed normalized ways file>
+```
+
+The output is a stream of line-delimited geojson way features.
