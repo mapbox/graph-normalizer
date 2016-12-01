@@ -8,6 +8,7 @@ var byline = require('byline');
 var through2 = require('through2');
 var stitchWays = require('../lib/stitch-ways');
 var unidirectionalWays = require('../lib/unidirectional-ways');
+var cropOutTile = require('../lib/crop-out-tile');
 var argv = require('minimist')(process.argv.slice(2));
 
 var waysFile = argv.waysFile;
@@ -33,7 +34,10 @@ function loadWays(wayPath, done) {
     });
 
     if (coverQuadkeys.length > 1) {
-      ways.push(way);
+      var croppedWays = cropOutTile(way, zoomLevel);
+      for (var i = 0; i < croppedWays.length; i++) {
+        ways.push(croppedWays[i]);
+      }
     } else {
       var duplicatedWays = unidirectionalWays([way]);
       for (var i = 0; i < duplicatedWays.length; i++) {
