@@ -11,7 +11,7 @@
     "test": "npm run lint && tap test/*.test.js",
     "lint": "eslint '*.js' './**/*.js'",
     "fix": "eslint --fix '*.js' './**/*.js'",
-    "bench": "node bench/*.js"
+    "bench": "for f in `ls ./bench/*.bench.js`; do node $f; done"
   },
   "repository": {
     "type": "git",
