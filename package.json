@@ -31,6 +31,7 @@
     "turf-linestring": "^1.0.2"
   },
   "devDependencies": {
+    "benchmark": "^2.1.2",
     "eslint": "^3.6.1",
     "eslint-config-mourner": "^2.0.1",
     "tap": "^7.1.2"
