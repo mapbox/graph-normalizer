@@ -10,7 +10,8 @@
   "scripts": {
     "test": "npm run lint && tap test/*.test.js",
     "lint": "eslint '*.js' './**/*.js'",
-    "fix": "eslint --fix '*.js' './**/*.js'"
+    "fix": "eslint --fix '*.js' './**/*.js'",
+    "bench": "node bench/*.js"
   },
   "repository": {
     "type": "git",

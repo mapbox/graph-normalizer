@@ -10,13 +10,13 @@ var medium = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/medium.
 var large = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/large.json')));
 
 new Benchmark.Suite('merge-ways')
-.add('merge-ways # small',function () {
+.add('merge-ways # small', function () {
   normalizer.mergeWays(small);
 })
-.add('merge-ways # medium',function () {
+.add('merge-ways # medium', function () {
   normalizer.mergeWays(medium);
 })
-.add('merge-ways # large',function () {
+.add('merge-ways # large', function () {
   normalizer.mergeWays(large);
 })
 .on('cycle', function (event) {
