@@ -1,7 +1,7 @@
 'use strict';
 
 var test = require('tap').test;
-var mergeWays = require('../lib/merge-ways');
+var normalizer = require('../');
 var fs = require('fs');
 var path = require('path');
 
@@ -12,7 +12,7 @@ test('merge-ways', function (t) {
     var before = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/merge-ways/', fixture, 'before')));
     var after = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/merge-ways/', fixture, 'after')));
 
-    var result = mergeWays(before);
+    var result = normalizer.mergeWays(before);
     t.deepEqual(result, after, fixture + ' output matches expected result');
   });
 
