@@ -47,3 +47,15 @@ The algorithm follows this workflow:
 - **Splitting** - Having the ways from each quadkey, `graph-normalizer` then splits the ways that traverse an intersection into two. `!<i>` is appended to the way id where `i` is the index of the split way in the original geometry.
 
 - **Merging** - Ways that share a node which is not an intersection (only 2 way owners) are merged together. The resulting id is `<wayOne>,<wayTwo>`.
+
+### Tests
+
+```
+npm test
+```
+
+### Benchmarks
+
+```
+npm run bench
+```

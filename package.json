@@ -10,7 +10,8 @@
   "scripts": {
     "test": "npm run lint && tap test/*.test.js",
     "lint": "eslint '*.js' './**/*.js'",
-    "fix": "eslint --fix '*.js' './**/*.js'"
+    "fix": "eslint --fix '*.js' './**/*.js'",
+    "bench": "for f in `ls ./bench/*.bench.js`; do node $f; done"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "turf-linestring": "^1.0.2"
   },
   "devDependencies": {
+    "benchmark": "^2.1.2",
     "eslint": "^3.6.1",
     "eslint-config-mourner": "^2.0.1",
     "tap": "^7.1.2"
