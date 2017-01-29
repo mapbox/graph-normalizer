@@ -45,9 +45,11 @@ waysStream.on('data', function (line) {
         // Differenciate each part of the way by appending to its id
         tileWay.properties.id = way.properties.id + '|' + k;
 
-        // persist the highway and oneway tags
+        // persist highway, oneway, bridge, and tunnel tags if present
         tileWay.properties.highway = way.properties.highway;
         tileWay.properties.oneway = way.properties.oneway;
+        tileWay.properties.bridge = way.properties.bridge;
+        tileWay.properties.tunnel = way.properties.tunnel;
         if (quadHash[quadkey] === undefined) quadHash[quadkey] = [];
         quadHash[quadkey].push(tileWay);
       }
