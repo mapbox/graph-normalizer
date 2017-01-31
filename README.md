@@ -26,7 +26,7 @@ It satisfies the following constraints:
 - All way geometries in the original road network have an equivalent in the normalized graph.
 - No intersection ever lies within a normalized way, only at its ends.
 - Normalized way ids keep track of the history of transformations that led to it.
-- `highway` and `oneway` tags are conserved from the original graph.
+- `highway`, `oneway`, `bridge` and `tunnel` tags are conserved from the original graph.
 
 Edges that are shared by multiple tiles are conserved in all of them.
 
