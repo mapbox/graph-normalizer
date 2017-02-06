@@ -66,10 +66,14 @@ waysStream.on('data', function (line) {
     ways = splitWays(ways);
     ways = mergeWays(ways);
 
-    fs.writeFile(path.join(outputPath, quadkey + '.json'), ways.map(function (way) {
-      // append quadkey to way id
+    var outputStream = fs.createWriteStream(path.join(outputPath, quadkey + '.json'));
+    for (var i = 0; i < ways.length - 1; i++) {
+      var way = ways[i];
       way.properties.id = way.properties.id + ';' + quadkey;
-      return JSON.stringify(way);
-    }).join('\n'));
+      outputStream.write(JSON.stringify(way) + '\n');
+    }
+    way = ways[ways.length - 1];
+    way.properties.id = way.properties.id + ';' + quadkey;
+    outputStream.write(JSON.stringify(way));
   });
 });
