@@ -22,8 +22,6 @@ options.mergeHighways = (argv.mergeHighways === undefined) ? false : argv.mergeH
 options.mergeTunnels = (argv.mergeTunnels === undefined) ? false : argv.mergeTunnels;
 options.mergeBridges = (argv.mergeBridges === undefined) ? false : argv.mergeBridges;
 
-console.log(options);
-
 var waysStream = byline(fs.createReadStream(waysFile), {encoding: 'utf8'});
 
 waysStream.on('data', function (line) {
