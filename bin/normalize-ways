@@ -16,6 +16,13 @@ var quadHash = {};
 var outputPath = argv.outputPath;
 var waysFile = argv.waysFile;
 var zoomLevel = argv.zoomLevel;
+var options = {};
+
+options.mergeHighways = (argv.mergeHighways === undefined) ? false : argv.mergeHighways;
+options.mergeTunnels = (argv.mergeTunnels === undefined) ? false : argv.mergeTunnels;
+options.mergeBridges = (argv.mergeBridges === undefined) ? false : argv.mergeBridges;
+
+console.log(options);
 
 var waysStream = byline(fs.createReadStream(waysFile), {encoding: 'utf8'});
 
@@ -64,7 +71,7 @@ waysStream.on('data', function (line) {
     var ways = quadHash[quadkey];
 
     ways = splitWays(ways);
-    ways = mergeWays(ways);
+    ways = mergeWays(ways, options);
 
     var outputStream = fs.createWriteStream(path.join(outputPath, quadkey + '.json'));
     for (var i = 0; i < ways.length - 1; i++) {
