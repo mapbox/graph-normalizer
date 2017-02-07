@@ -17,7 +17,10 @@ This package is intended as a utility for graph-tiler, but can be used on its ow
 node_modules/graph-normalizer/bin/normalize-ways \
   --waysFile <geojson line-delimited ways file> \
   --outputPath <output path> \
-  --zoomLevel <output zoom level - default 14>
+  --zoomLevel <output zoom level - default 14> \
+  --mergeHighways <optional - merge ways with different highway tags - default false> \
+  --mergeTunnels <optional - merge ways with different tunnel tags - default false> \
+  --mergeBridges <optional - merge ways with different bridge tags - default false>
 ```
 
 The output is a number of files, named `<quadkey>.json`, of line-delimited geojson way features.
@@ -26,7 +29,11 @@ It satisfies the following constraints:
 - All way geometries in the original road network have an equivalent in the normalized graph.
 - No intersection ever lies within a normalized way, only at its ends.
 - Normalized way ids keep track of the history of transformations that led to it.
-- `highway`, `oneway`, `bridge` and `tunnel` tags are conserved from the original graph.
+- `highway`, `oneway`, `bridge` and `tunnel` tags are conserved from the original graph by default.
+- `highway`, `bridge` and `tunnel` tags can be merged using optional arguments. When merging different tags:
+  - `highway` tag is set as `unclassified`
+  - `tunnel` tag is set to `yes` i.e. we keep the info that there is a tunnel in the merged way
+  - `bridge` tag is set to `yes` i.e. we keep the info that there is a bridge in the merged way
 
 Edges that are shared by multiple tiles are conserved in all of them.
 
