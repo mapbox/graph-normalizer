@@ -18,9 +18,9 @@ var waysFile = argv.waysFile;
 var zoomLevel = argv.zoomLevel;
 var options = {};
 
-options.mergeHighways = (argv.mergeHighways === undefined) ? false : argv.mergeHighways;
-options.mergeTunnels = (argv.mergeTunnels === undefined) ? false : argv.mergeTunnels;
-options.mergeBridges = (argv.mergeBridges === undefined) ? false : argv.mergeBridges;
+options.mergeHighways = (argv.mergeHighways !== undefined) ? JSON.parse(argv.mergeHighways) : false;
+options.mergeTunnels = (argv.mergeTunnels !== undefined) ? JSON.parse(argv.mergeTunnels) : false;
+options.mergeBridges = (argv.mergeBridges !== undefined) ? JSON.parse(argv.mergeBridges) : false;
 
 var waysStream = byline(fs.createReadStream(waysFile), {encoding: 'utf8'});
 
