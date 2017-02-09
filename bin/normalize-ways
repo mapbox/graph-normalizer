@@ -64,7 +64,6 @@ waysStream.on('data', function (line) {
 }).on('end', function () {
   // once all ways are processed, normalize each
   // quadkey's ways and write them to disk.
-
   Object.keys(quadHash).forEach(function (quadkey) {
     var ways = quadHash[quadkey];
 
@@ -80,5 +79,6 @@ waysStream.on('data', function (line) {
     way = ways[ways.length - 1];
     way.properties.id = way.properties.id + ';' + quadkey;
     outputStream.write(JSON.stringify(way));
+    outputStream.end();
   });
 });
