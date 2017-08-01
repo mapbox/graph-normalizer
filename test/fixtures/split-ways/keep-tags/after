@@ -58,7 +58,9 @@
         "2"
       ],
       "oneway": 1,
-      "highway": "secondary"
+      "highway": "secondary",
+      "name": "Market Street",
+      "ref": "I-70"
     },
     "geometry": {
       "type": "LineString",
@@ -83,7 +85,9 @@
         "6"
       ],
       "oneway": 1,
-      "highway": "secondary"
+      "highway": "secondary",
+      "name": "Market Street",
+      "ref": "I-70"
     },
     "geometry": {
       "type": "LineString",
