@@ -9,7 +9,7 @@ This package is intended as a utility for graph-tiler, but can be used on its ow
 
 ### Installation
 
-`npm install @mapbox/graph-normlizer`
+`npm install @mapbox/graph-normalizer`
 
 ### Usage
 
