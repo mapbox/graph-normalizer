@@ -10,7 +10,8 @@
         "4"
       ],
       "oneway": 0,
-      "highway": "freeway"
+      "highway": "freeway",
+      "access": "yes"
     },
     "geometry": {
       "type": "LineString",
