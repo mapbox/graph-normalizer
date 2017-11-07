@@ -39,7 +39,7 @@ console.log(JSON.stringify(ways));
 
 #### splitWays(ways)
 
-Any ways that traverse an intersection are split in two. `!<i>` is appended to the way id where `i` is the index of the split way in the original geometry.
+Any ways that traverse an intersection are split in two. `!<i>` is appended to the way id where `i` is the index of the split way in the original geometry. Note that `!0` is appended to the way id if there is no split.
 
 #### mergeWays(ways)
 
@@ -55,7 +55,8 @@ Ways that share a node which is not an intersection (only 2 way owners) are merg
   - the `oneway` property must be normalized to `0` or `1`
   - `0` signifies a bidirectional way
   - `1` signifies a oneway way traveling in coordinate order
-  - graph-normalizer will not work with raw OpenStreetMap oneway values such as `yes`, `-1`, or `no`
+  - `-1` signifies a oneway way traveling in reverse coordinate order (this will be normalized)
+  - graph-normalizer will not work with raw OpenStreetMap oneway values such as `yes`, or `no`
 
 ### Misc
 
