@@ -52,10 +52,10 @@ Ways that share a node which is not an intersection (only 2 way owners) are merg
 - Each feature must have an `id` property representing the OpenStreetMap id of the way
 - Each feature must have a `highway` property representing the OpenStreetMap highway tag of the way
 - Each feature must have a `oneway` property representing the OpenStreetMap oneway tag of the way
-  - the `oneway` property must be normalized to `0` or `1`
+  - the `oneway` property must be normalized to `0`, `1`, or `-1`
   - `0` signifies a bidirectional way
   - `1` signifies a oneway way traveling in coordinate order
-  - `-1` signifies a oneway way traveling in reverse coordinate order (this will be normalized)
+  - `-1` signifies a oneway way traveling in reverse coordinate order (this will be normalized to forward order `1`)
   - graph-normalizer will not work with raw OpenStreetMap oneway values such as `yes`, or `no`
 
 ### Misc
