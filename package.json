@@ -8,7 +8,7 @@
     "node": "4.4.3"
   },
   "scripts": {
-    "test": "npm run lint && tap test/*.test.js",
+    "test": "npm run lint && tap -R spec test/*.test.js",
     "lint": "eslint '*.js' './**/*.js'",
     "fix": "eslint --fix '*.js' './**/*.js'",
     "bench": "for f in `ls ./bench/*.bench.js`; do node $f; done"
@@ -28,7 +28,6 @@
     "graceful-fs": "^4.1.9",
     "minimist": "^1.2.0",
     "through2": "^2.0.1",
-    "tile-cover": "^3.0.1",
     "turf-linestring": "^1.0.2"
   },
   "devDependencies": {
