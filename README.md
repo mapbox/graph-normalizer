@@ -63,9 +63,9 @@ Ways that share a node which is not an intersection (only 2 way owners) are merg
 - All way geometries in the original road network have an equivalent in the normalized graph.
 - No intersection ever lies within a normalized way, only at its ends.
 - Normalized way ids keep track of the history of transformations that led to it.
-- `highway`, `oneway`, `bridge` and `tunnel` tags are conserved from the original graph by default.
-- `highway`, `bridge` and `tunnel` tags can be merged using optional arguments. When merging different tags:
+- `highway`, `oneway`, `bridge`, `tunnel` and `junction` tags are conserved from the original graph by default.
+- `highway`, `bridge`, `tunnel` and `junction` tags can be merged using optional arguments. When merging different tags:
   - `highway` tag is set as `unclassified`
   - `tunnel` tag is set to `yes` i.e. we keep the info that there is a tunnel in the merged way
   - `bridge` tag is set to `yes` i.e. we keep the info that there is a bridge in the merged way
-
+  - `junction` tag is set we keep the info about the junction in the merged way
