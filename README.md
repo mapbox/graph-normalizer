@@ -2,67 +2,70 @@
 
 [![Build Status](https://travis-ci.com/mapbox/graph-normalizer.svg?token=L2z9Dgm3tWM4E4xpoHDL&branch=master)](https://travis-ci.com/mapbox/graph-normalizer)
 
-
-`graph-normalizer` is a Command Line Interface that pipes in a geojson file of ways (usually at the z7 level), and outputs normalized pieces of graph at a given zoom level.
-
-This package is intended as a utility for graph-tiler, but can be used on its own.
+`graph-normalizer` is a JavaScript module that performs operations on an array of GeoJSON LineStrings representing OpenStreetMap ways. The operations performed cover a standard set of graph normalization techniques such as merging edges between intersections and splitting edges that cross over intersections. Ids assigned to ways in the normalized graph are deterministic and reproducible.
 
 ### Installation
 
-`npm install @mapbox/graph-normalizer`
-
-### Usage
-
-```
-node_modules/graph-normalizer/bin/normalize-ways \
-  --waysFile <geojson line-delimited ways file> \
-  --outputPath <output path> \
-  --zoomLevel <output zoom level - default 14> \
-  --mergeHighways <optional - merge ways with different highway tags - default false> \
-  --mergeTunnels <optional - merge ways with different tunnel tags - default false> \
-  --mergeBridges <optional - merge ways with different bridge tags - default false>
+```sh
+npm install @mapbox/graph-normlizer
 ```
 
-The output is a number of files, named `<quadkey>.json`, of line-delimited geojson way features.
+### Test
 
-It satisfies the following constraints:
-- All way geometries in the original road network have an equivalent in the normalized graph.
-- No intersection ever lies within a normalized way, only at its ends.
-- Normalized way ids keep track of the history of transformations that led to it.
-- `highway`, `oneway`, `bridge` and `tunnel` tags are conserved from the original graph by default.
-- `highway`, `bridge` and `tunnel` tags can be merged using optional arguments. When merging different tags:
-  - `highway` tag is set as `unclassified`
-  - `tunnel` tag is set to `yes` i.e. we keep the info that there is a tunnel in the merged way
-  - `bridge` tag is set to `yes` i.e. we keep the info that there is a bridge in the merged way
-
-Edges that are shared by multiple tiles are conserved in all of them.
-
-It is recommended to keep the output zoom level high, as performance might drop when trying to normalize at a larger scale.
-
-### Algorithm
-
-`graph-normalizer` expects geojson LineString features that have a `refs` property, each ref corresponding to the node id of the matching coordinates in the `geometry.coordinates` array.
-
-Any way that does not respect this constraint will be dropped.
-
-The algorithm follows this workflow:
-
-- **Indexing** - It loads the ways into memory and indexes their segments into the quadkey(s) of the target zoom level in which they land.
-
-- **Tiling** - For each quadkey, it reconstructs each way from its segments. The segments of the original way that do not intersect with the tile are effectively dropped from this tile. Conversely, any segment that overlaps multiple tiles will be duplicated in all tiles.
-
-- **Splitting** - Having the ways from each quadkey, `graph-normalizer` then splits the ways that traverse an intersection into two. `!<i>` is appended to the way id where `i` is the index of the split way in the original geometry.
-
-- **Merging** - Ways that share a node which is not an intersection (only 2 way owners) are merged together. The resulting id is `<wayOne>,<wayTwo>`.
-
-### Tests
-
-```
+```sh
 npm test
 ```
 
-### Benchmarks
+### Benchmark
 
 ```
 npm run bench
 ```
+
+### Use
+
+```js
+var normalizer = require('@mapbox/graph-normalizer');
+
+var ways = require('./ways.json');
+
+var splitWays = normalizer.splitWays(ways);
+var mergedWays = normalizer.mergeWays(ways);
+
+console.log(JSON.stringify(ways));
+```
+
+### API
+
+#### splitWays(ways)
+
+Any ways that traverse an intersection are split in two. `!<i>` is appended to the way id where `i` is the index of the split way in the original geometry. Note that `!0` is appended to the way id if there is no split.
+
+#### mergeWays(ways)
+
+Ways that share a node which is not an intersection (only 2 way owners) are merged together. The resulting id is `<wayOne>,<wayTwo>`.
+
+### Input format
+
+- An array of GeoJSON LineString Features
+- Each feature must have a `refs` array signifying node Ids of the coordinates that make up the way used for topology construction
+- Each feature must have an `id` property representing the OpenStreetMap id of the way
+- Each feature must have a `highway` property representing the OpenStreetMap highway tag of the way
+- Each feature must have a `oneway` property representing the OpenStreetMap oneway tag of the way
+  - the `oneway` property must be normalized to `0`, `1`, or `-1`
+  - `0` signifies a bidirectional way
+  - `1` signifies a oneway way traveling in coordinate order
+  - `-1` signifies a oneway way traveling in reverse coordinate order (this will be normalized to forward order `1`)
+  - graph-normalizer will not work with raw OpenStreetMap oneway values such as `yes`, or `no`
+
+### Misc
+
+- All way geometries in the original road network have an equivalent in the normalized graph.
+- No intersection ever lies within a normalized way, only at its ends.
+- Normalized way ids keep track of the history of transformations that led to it.
+- `highway`, `oneway`, `bridge`, `tunnel` and `junction` tags are conserved from the original graph by default.
+- `highway`, `bridge`, `tunnel` and `junction` tags can be merged using optional arguments. When merging different tags:
+  - `highway` tag is set as `unclassified`
+  - `tunnel` tag is set to `yes` i.e. we keep the info that there is a tunnel in the merged way
+  - `bridge` tag is set to `yes` i.e. we keep the info that there is a bridge in the merged way
+  - `junction` tag is set we keep the info about the junction in the merged way
