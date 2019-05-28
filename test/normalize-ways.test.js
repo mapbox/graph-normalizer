@@ -95,11 +95,5 @@ test('normalize-ways cli with openLR', function (t) {
         });
       });
     });
-    // var resultA = fs.readFileSync(path.join(__dirname, '../test_output/12022001101.json'), {encoding: 'utf8'});
-    // var expectedA = fs.readFileSync(path.join(__dirname, 'fixtures/normalize-ways/12022001101.json'), {encoding: 'utf8'});
-    // t.same(resultA, expectedA, 'matching results after openLR insertion');
-    // var resultB = JSON.parse(fs.readFileSync(path.join(__dirname, '../test_output/12022001110.json'), {encoding: 'utf8'}));
-    // var expectedB = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures/normalize-ways/12022001110.json'), {encoding: 'utf8'}));
-    // t.same(resultB, expectedB, 'matching results after openLR insertion');=
   });
 });
