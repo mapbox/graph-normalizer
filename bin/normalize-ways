@@ -78,6 +78,9 @@ waysStream.on('data', function (line) {
       way.properties.id = way.properties.id + ';' + quadkey;
       if (openLR) {
         way.properties.openLR = geojsonLR.toOpenLRString(way);
+        if (way.properties.oneway === 0) {
+          way.properties.reverseOpenLR = geojsonLR.reverseOpenLRString(way.properties.openLR);
+        }
       }
       outputStream.write(JSON.stringify(way) + '\n');
     }
@@ -85,6 +88,9 @@ waysStream.on('data', function (line) {
     way.properties.id = way.properties.id + ';' + quadkey;
     if (openLR) {
       way.properties.openLR = geojsonLR.toOpenLRString(way);
+      if (way.properties.oneway === 0) {
+        way.properties.reverseOpenLR = geojsonLR.reverseOpenLRString(way.properties.openLR);
+      }
     }
     outputStream.write(JSON.stringify(way));
     outputStream.end();
