@@ -88,7 +88,7 @@ test('normalize-ways cli with openLR', function (t) {
           .on('finish', function () {
             outputB.sort();
             expectedB.sort();
-            t.same(outputA, expectedA, 'matching results after OpenLR insertion');
+            t.same(outputB, expectedB, 'matching results after OpenLR insertion');
             execSync('rm -rf ' + path.join(__dirname, '../test_output'));
             t.end();
           });
