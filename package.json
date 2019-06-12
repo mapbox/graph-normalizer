@@ -23,7 +23,7 @@
   "author": "benjamintd",
   "license": "ISC",
   "dependencies": {
-    "@mapbox/geojson-lr": "^0.1.2",
+    "@mapbox/geojson-lr": "^0.2.0",
     "byline": "^5.0.0",
     "concat-stream": "^1.5.2",
     "graceful-fs": "^4.1.9",
