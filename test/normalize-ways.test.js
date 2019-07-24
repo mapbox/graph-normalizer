@@ -27,6 +27,30 @@ test('normalize-ways cli', function (t) {
   });
 });
 
+test('normalize-ways cli with tricky boundary way', function (t) {
+  execSync('mkdir -p ' + path.join(__dirname, '../test_output'));
+  var cmd = 'node ' + path.join(__dirname, '../bin/normalize-ways') +
+            ' --outputPath ' + path.join(__dirname, '../test_output/') +
+            ' --waysFile ' + path.join(__dirname, 'fixtures/osm-ways-7-37-48.geojson') +
+            ' --zoomLevel 11';
+
+  exec(cmd, function (err, stdout, stderr) {
+    t.notOk(err, 'did not throw an error');
+    t.notOk(stderr, 'did not write to stderr');
+    t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 2, 'Good number of files created.');
+
+    var a = JSON.parse(fs.readFileSync(path.join(__dirname, '../test_output/03201011120.json'), {encoding: 'utf8'}));
+    var b = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures/normalize-ways/03201011120.json'), {encoding: 'utf8'}));
+    t.same(a, b, 'The output file matches expected');
+
+    a = JSON.parse(fs.readFileSync(path.join(__dirname, '../test_output/03201011121.json'), {encoding: 'utf8'}));
+    b = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures/normalize-ways/03201011121.json'), {encoding: 'utf8'}));
+    t.same(a, b, 'The output file matches expected');
+    execSync('rm -rf ' + path.join(__dirname, '../test_output'));
+    t.end();
+  });
+});
+
 test('normalize-ways cli with openLR', function (t) {
   execSync('mkdir -p ' + path.join(__dirname, '../test_output'));
   var cmd = 'node ' + path.join(__dirname, '../bin/normalize-ways') +

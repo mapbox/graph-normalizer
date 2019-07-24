@@ -1,0 +1,1 @@
+{ "type": "Feature", "properties": { "id": "testboundary|0!0;03201011121", "refs": ["2982064778","2982064775"], "oneway": 0, "highway": "residential" }, "geometry": { "type": "LineString", "coordinates": [[-73.652215, 40.624132], [-73.652344, 40.62412]]}}

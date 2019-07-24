@@ -29,7 +29,7 @@ var waysStream = byline(fs.createReadStream(waysFile), {encoding: 'utf8'});
 waysStream.on('data', function (line) {
   // hash ways into the quadHash
 
-  var way = JSON.parse(line);
+  let way = JSON.parse(line);
 
   // parse refs if they are in string format
   if (typeof way.properties.refs === 'string') {
@@ -39,15 +39,16 @@ waysStream.on('data', function (line) {
   // throw out ways that have a different number of refs vs coordinates
   if (way.properties.refs !== undefined && way.geometry.coordinates.length === way.properties.refs.length) {
     // index the way's segments into z14 tiles
-    var tileQuadkeys = indexWay(way, zoomLevel);
+    let tileQuadkeys = indexWay(way, zoomLevel);
 
     // Consolidate each quadkey's pairs into way slices,
     // and add them to the quadHash, a hash from quadkey to ways.
     Object.keys(tileQuadkeys).forEach(function (quadkey) {
-      var pairs = tileQuadkeys[quadkey];
-      var tileWays = pairsToWays(pairs);
-      for (var k = 0, n = tileWays.length; k < n; k++) {
-        var tileWay = tileWays[k];
+
+      let pairs = tileQuadkeys[quadkey];
+      let tileWays = pairsToWays(pairs);
+      for (let k = 0, n = tileWays.length; k < n; k++) {
+        let tileWay = tileWays[k];
 
         // Differenciate each part of the way by appending to its id
         tileWay.properties.id = way.properties.id + '|' + k;
@@ -62,7 +63,6 @@ waysStream.on('data', function (line) {
       }
     });
   }
-
 }).on('end', function () {
   // once all ways are processed, normalize each
   // quadkey's ways and write them to disk.
