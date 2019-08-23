@@ -1,5 +1,5 @@
 {
   "mergeHighways": false,
-  "mergeTunnels": false,
-  "mergeBridges": true
+  "mergeTunnels": true,
+  "mergeBridges": false
 }

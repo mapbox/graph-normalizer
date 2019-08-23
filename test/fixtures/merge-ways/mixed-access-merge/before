@@ -6,8 +6,7 @@
       "refs": [
         "1",
         "2"
-      ],
-      "access": "no"
+      ]
     },
     "geometry": {
       "type": "LineString",
@@ -54,7 +53,8 @@
       "refs": [
         "3",
         "4"
-      ]
+      ],
+      "access": "no"
     },
     "geometry": {
       "type": "LineString",

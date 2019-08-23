@@ -8,7 +8,7 @@
         "4"
       ],
       "highway": "primary",
-      "tunnel": "yes"
+      "bridge": "yes"
     },
     "geometry": {
       "type": "LineString",

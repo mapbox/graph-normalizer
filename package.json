@@ -33,7 +33,7 @@
     "benchmark": "^2.1.2",
     "eslint": "^3.6.1",
     "eslint-config-mourner": "^2.0.1",
-    "tap": "^7.1.2"
+    "tap": "^14.6.1"
   },
   "bugs": {
     "url": "https://github.com/mapbox/graph-normalizer/issues"
