@@ -7,7 +7,7 @@
         "1",
         "2"
       ],
-      "highway": "primary"
+      "access": "no"
     },
     "geometry": {
       "type": "LineString",
@@ -31,7 +31,7 @@
         "2",
         "3"
       ],
-      "highway": "primary"
+      "access": "yes"
     },
     "geometry": {
       "type": "LineString",
@@ -54,9 +54,7 @@
       "refs": [
         "3",
         "4"
-      ],
-      "highway": "primary",
-      "bridge": "yes"
+      ]
     },
     "geometry": {
       "type": "LineString",
