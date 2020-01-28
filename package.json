@@ -4,7 +4,7 @@
   "description": "Takes nodes and ways and turn them into a normalized graph of intersections and ways.",
   "main": "./index.js",
   "engines": {
-    "node": "4.4.3"
+    "node": "10.18.1"
   },
   "scripts": {
     "test": "npm run lint && tap -R spec test/*.test.js",
@@ -22,6 +22,7 @@
   "author": "benjamintd",
   "license": "ISC",
   "dependencies": {
+    "8": "0.0.1",
     "byline": "^5.0.0",
     "concat-stream": "^1.5.2",
     "graceful-fs": "^4.1.9",
