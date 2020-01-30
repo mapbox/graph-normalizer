@@ -22,7 +22,6 @@
   "author": "benjamintd",
   "license": "ISC",
   "dependencies": {
-    "8": "0.0.1",
     "byline": "^5.0.0",
     "concat-stream": "^1.5.2",
     "graceful-fs": "^4.1.9",
