@@ -6,6 +6,7 @@ var byline = require('byline');
 var fs = require('graceful-fs');
 var path = require('path');
 var geojsonLR = require('@mapbox/geojson-lr');
+var clonedeep = require('lodash.clonedeep');
 var pairsToWays = require('../lib/pairs-to-ways');
 var indexWay = require('../lib/index-way');
 var splitWays = require('../lib/split-ways');
@@ -79,7 +80,7 @@ waysStream.on('data', function (line) {
       if (openLR) {
         way.properties.openLR = geojsonLR.toOpenLRString(way);
         if (way.properties.oneway === 0) {
-          way.properties.reverseOpenLR = geojsonLR.reverseOpenLRString(way.properties.openLR);
+          way.properties.reverseOpenLR = geojsonLR.toOpenLRString(reverseWay(way));
         }
       }
       outputStream.write(JSON.stringify(way) + '\n');
@@ -89,10 +90,17 @@ waysStream.on('data', function (line) {
     if (openLR) {
       way.properties.openLR = geojsonLR.toOpenLRString(way);
       if (way.properties.oneway === 0) {
-        way.properties.reverseOpenLR = geojsonLR.reverseOpenLRString(way.properties.openLR);
+        way.properties.reverseOpenLR = geojsonLR.toOpenLRString(reverseWay(way));
       }
     }
     outputStream.write(JSON.stringify(way));
     outputStream.end();
   });
 });
+
+function reverseWay(way) {
+  let reverseWay = clonedeep(way);
+  reverseWay.geometry.coordinates.reverse();
+  reverseWay.properties.refs.reverse();
+  return reverseWay;
+}

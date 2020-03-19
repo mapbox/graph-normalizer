@@ -23,10 +23,11 @@
   "author": "benjamintd",
   "license": "ISC",
   "dependencies": {
-    "@mapbox/geojson-lr": "^0.2.0",
+    "@mapbox/geojson-lr": "^1.0.0",
     "byline": "^5.0.0",
     "concat-stream": "^1.5.2",
     "graceful-fs": "^4.1.9",
+    "lodash.clonedeep": "^4.5.0",
     "minimist": "^1.2.0",
     "through2": "^2.0.1",
     "tile-cover": "^3.0.1",
