@@ -7,6 +7,7 @@ var fs = require('graceful-fs');
 var path = require('path');
 var geojsonLR = require('@mapbox/geojson-lr');
 var clonedeep = require('lodash.clonedeep');
+var jsonBigInt = require('json-bigint');
 var pairsToWays = require('../lib/pairs-to-ways');
 var indexWay = require('../lib/index-way');
 var splitWays = require('../lib/split-ways');
@@ -30,12 +31,17 @@ var waysStream = byline(fs.createReadStream(waysFile), {encoding: 'utf8'});
 waysStream.on('data', function (line) {
   // hash ways into the quadHash
 
-  let way = JSON.parse(line);
+  let way = jsonBigInt.parse(line);
 
   // parse refs if they are in string format
   if (typeof way.properties.refs === 'string') {
     way.properties.refs = way.properties.refs.split(',');
   }
+
+  // parse coordinates as float
+  way.geometry.coordinates = way.geometry.coordinates.map(function(x) {
+    return [parseFloat(x[0]), parseFloat(x[1])];
+  });
 
   // throw out ways that have a different number of refs vs coordinates
   if (way.properties.refs !== undefined && way.geometry.coordinates.length === way.properties.refs.length) {
@@ -83,7 +89,7 @@ waysStream.on('data', function (line) {
           way.properties.reverseOpenLR = geojsonLR.toOpenLRString(reverseWay(way));
         }
       }
-      outputStream.write(JSON.stringify(way) + '\n');
+      outputStream.write(jsonBigInt.stringify(way) + '\n');
     }
     way = ways[ways.length - 1];
     way.properties.id = way.properties.id + ';' + quadkey;
@@ -93,7 +99,7 @@ waysStream.on('data', function (line) {
         way.properties.reverseOpenLR = geojsonLR.toOpenLRString(reverseWay(way));
       }
     }
-    outputStream.write(JSON.stringify(way));
+    outputStream.write(jsonBigInt.stringify(way));
     outputStream.end();
   });
 });
