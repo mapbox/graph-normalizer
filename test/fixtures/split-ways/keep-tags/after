@@ -8,7 +8,8 @@
         "2"
       ],
       "oneway": 0,
-      "highway": "primary"
+      "highway": "primary",
+      "maxspeed": 60
     },
     "geometry": {
       "type": "LineString",
@@ -33,7 +34,8 @@
         "3"
       ],
       "oneway": 0,
-      "highway": "primary"
+      "highway": "primary",
+      "maxspeed": 60
     },
     "geometry": {
       "type": "LineString",
@@ -60,7 +62,8 @@
       "oneway": 1,
       "highway": "secondary",
       "name": "Market Street",
-      "ref": "I-70"
+      "ref": "I-70",
+      "maxspeed": "10"
     },
     "geometry": {
       "type": "LineString",
@@ -87,7 +90,8 @@
       "oneway": 1,
       "highway": "secondary",
       "name": "Market Street",
-      "ref": "I-70"
+      "ref": "I-70",
+      "maxspeed": "10"
     },
     "geometry": {
       "type": "LineString",

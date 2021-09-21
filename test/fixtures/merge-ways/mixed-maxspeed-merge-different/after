@@ -9,7 +9,7 @@
         "3",
         "4"
       ],
-      "highway": "primary"
+      "maxspeed": "20"
     },
     "geometry": {
       "type": "LineString",
