@@ -21,6 +21,7 @@ node_modules/graph-normalizer/bin/normalize-ways \
   --mergeHighways <optional - merge ways with different highway tags - default false> \
   --mergeTunnels <optional - merge ways with different tunnel tags - default false> \
   --mergeBridges <optional - merge ways with different bridge tags - default false>
+  --mergeMaxspeed <optional - merge ways with different maxspeed tags - default false>
 ```
 
 The output is a number of files, named `<quadkey>.json`, of line-delimited geojson way features.
@@ -29,11 +30,12 @@ It satisfies the following constraints:
 - All way geometries in the original road network have an equivalent in the normalized graph.
 - No intersection ever lies within a normalized way, only at its ends.
 - Normalized way ids keep track of the history of transformations that led to it.
-- `highway`, `oneway`, `bridge` and `tunnel` tags are conserved from the original graph by default.
-- `highway`, `bridge` and `tunnel` tags can be merged using optional arguments. When merging different tags:
+- `highway`, `oneway`, `bridge`, `tunnel` and `maxspeed` tags are conserved from the original graph by default.
+- `highway`, `bridge`, `tunnel` and `maxspeed` tags can be merged using optional arguments. When merging different tags:
   - `highway` tag is set as `unclassified`
   - `tunnel` tag is set to `yes` i.e. we keep the info that there is a tunnel in the merged way
   - `bridge` tag is set to `yes` i.e. we keep the info that there is a bridge in the merged way
+  - `maxspeed` tag is set to `min([maxspeeds])` i.e. we get the minimum of speed limit in the merged way  
 
 Edges that are shared by multiple tiles are conserved in all of them.
 
