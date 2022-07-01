@@ -1,3 +1,8 @@
 language: node_js
 node_js:
-  - "4.4"
+  - 14
+env:
+    - PATH=$TRAVIS_BUILD_DIR:$PATH
+before_install:
+  - curl -Ls https://mapbox-release-engineering.s3.amazonaws.com/mbx-ci/latest/mbx-ci-linux-amd64 > mbx-ci && chmod 755 mbx-ci
+  - mbx-ci npm token --write-file
