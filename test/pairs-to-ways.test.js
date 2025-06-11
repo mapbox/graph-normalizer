@@ -4,6 +4,7 @@ const test = require('tap').test;
 const pairsToWays = require('../lib/pairs-to-ways');
 const fs = require('fs');
 const path = require('path');
+const deepEqual = require('deep-equal');
 
 const linestring = require('turf-linestring');
 
@@ -14,7 +15,7 @@ test('pairs-to-ways', (t) => {
 
     const result = pairsToWays(before);
 
-    t.deepEqual(result, after, 'output matches expected result');
+    deepEqual(result, after, 'output matches expected result');
     t.end();
 });
 
@@ -25,14 +26,14 @@ test('pairs-to-ways second test', (t) => {
 
     let result = pairsToWays(before);
 
-    t.deepEqual(result, after, 'output matches expected result');
+    deepEqual(result, after, 'output matches expected result');
 
     before = [{'coords': [[-73.652215, 40.624132], [-73.652344, 40.62412]], 'ids': ['2982064778', '2982064775']}];
     after = [linestring([[-73.652215, 40.624132], [-73.652344, 40.62412]], {refs: ['2982064778', '2982064775']})];
 
     result = pairsToWays(before);
 
-    t.deepEqual(result, after, 'short output matches expected result');
+    deepEqual(result, after, 'short output matches expected result');
 
     t.end();
 });

@@ -4,6 +4,7 @@ const test = require('tap').test;
 const normalizer = require('../');
 const fs = require('fs');
 const path = require('path');
+const deepEqual = require('deep-equal');
 
 test('split-ways', (t) => {
     const fixtures = fs.readdirSync(path.join(__dirname, './fixtures/split-ways/'));
@@ -14,7 +15,7 @@ test('split-ways', (t) => {
 
         const result = normalizer.splitWays(before);
 
-        t.deepEqual(result, after, `${fixture  } output matches expected result`);
+        deepEqual(result, after, `${fixture  } output matches expected result`);
     });
 
     t.end();

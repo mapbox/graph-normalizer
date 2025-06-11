@@ -7,6 +7,7 @@ const exec = require('child_process').exec;
 const byline = require('byline');
 const through2 = require('through2');
 const execSync = require('child_process').execSync;
+const deepEqual = require('deep-equal');
 
 test('normalize-ways cli', (t) => {
     execSync(`mkdir -p ${  path.join(__dirname, '../test_output')}`);
@@ -18,10 +19,10 @@ test('normalize-ways cli', (t) => {
     exec(cmd, (err, stdout, stderr) => {
         t.notOk(err, 'did not throw an error');
         t.notOk(stderr, 'did not write to stderr');
-        t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 541, 'Good number of files created.');
+        deepEqual(fs.readdirSync(path.join(__dirname, '../test_output')).length, 541, 'Good number of files created.');
         const a = fs.readFileSync(path.join(__dirname, '../test_output/02132212323223.json'), {encoding: 'utf8'});
         const b = fs.readFileSync(path.join(__dirname, 'fixtures/normalize-ways/02132212323223.json'), {encoding: 'utf8'});
-        t.equals(a, b, 'The output file matches expected');
+        deepEqual(a, b, 'The output file matches expected');
         execSync(`rm -rf ${  path.join(__dirname, '../test_output')}`);
         t.end();
     });
@@ -37,10 +38,10 @@ test('normalize-ways cli with bigInt ids', (t) => {
     exec(cmd, (err, stdout, stderr) => {
         t.notOk(err, 'did not throw an error');
         t.notOk(stderr, 'did not write to stderr');
-        t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 1, 'Good number of files created.');
+        deepEqual(fs.readdirSync(path.join(__dirname, '../test_output')).length, 1, 'Good number of files created.');
         const a = fs.readFileSync(path.join(__dirname, '../test_output/13300211231112.json'), {encoding: 'utf8'});
         const b = fs.readFileSync(path.join(__dirname, 'fixtures/normalize-ways/13300211231112.json'), {encoding: 'utf8'});
-        t.equals(a, b, 'The output file matches expected');
+        deepEqual(a, b, 'The output file matches expected');
         execSync(`rm -rf ${  path.join(__dirname, '../test_output')}`);
         t.end();
     });
@@ -56,15 +57,15 @@ test('normalize-ways cli with tricky boundary way', (t) => {
     exec(cmd, (err, stdout, stderr) => {
         t.notOk(err, 'did not throw an error');
         t.notOk(stderr, 'did not write to stderr');
-        t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 2, 'Good number of files created.');
+        deepEqual(fs.readdirSync(path.join(__dirname, '../test_output')).length, 2, 'Good number of files created.');
 
         let a = JSON.parse(fs.readFileSync(path.join(__dirname, '../test_output/03201011120.json'), {encoding: 'utf8'}));
         let b = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures/normalize-ways/03201011120.json'), {encoding: 'utf8'}));
-        t.same(a, b, 'The output file matches expected');
+        deepEqual(a, b, 'The output file matches expected');
 
         a = JSON.parse(fs.readFileSync(path.join(__dirname, '../test_output/03201011121.json'), {encoding: 'utf8'}));
         b = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures/normalize-ways/03201011121.json'), {encoding: 'utf8'}));
-        t.same(a, b, 'The output file matches expected');
+        deepEqual(a, b, 'The output file matches expected');
         execSync(`rm -rf ${  path.join(__dirname, '../test_output')}`);
         t.end();
     });
@@ -80,7 +81,7 @@ test('normalize-ways cli with openLR', (t) => {
     exec(cmd, (err, stdout, stderr) => {
         t.notOk(err, 'did not throw an error');
         t.notOk(stderr, 'did not write to stderr');
-        t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 2, 'Good number of files created.');
+        deepEqual(fs.readdirSync(path.join(__dirname, '../test_output')).length, 2, 'Good number of files created.');
 
         const outputA = [];
         const expectedA = [];
@@ -108,7 +109,7 @@ test('normalize-ways cli with openLR', (t) => {
                     .on('finish', () => {
                         outputA.sort();
                         expectedA.sort();
-                        t.same(outputA, expectedA, 'matching results after OpenLR insertion');
+                        deepEqual(outputA, expectedA, 'matching results after OpenLR insertion');
                         fs.createReadStream(path.join(__dirname, '../test_output/12022001110.json'))
                             .on('error', (err) => {
                                 throw err;
@@ -131,7 +132,7 @@ test('normalize-ways cli with openLR', (t) => {
                                     .on('finish', () => {
                                         outputB.sort();
                                         expectedB.sort();
-                                        t.same(outputB, expectedB, 'matching results after OpenLR insertion');
+                                        deepEqual(outputB, expectedB, 'matching results after OpenLR insertion');
                                         execSync(`rm -rf ${  path.join(__dirname, '../test_output')}`);
                                         t.end();
                                     });

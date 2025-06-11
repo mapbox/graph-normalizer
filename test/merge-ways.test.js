@@ -4,6 +4,7 @@ const test = require('tap').test;
 const normalizer = require('../');
 const fs = require('fs');
 const path = require('path');
+const deepEqual = require('deep-equal');
 
 test('merge-ways', (t) => {
     const fixtures = fs.readdirSync(path.join(__dirname, './fixtures/merge-ways/'));
@@ -15,7 +16,7 @@ test('merge-ways', (t) => {
         const after = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/merge-ways/', fixture, 'after')));
 
         const result = normalizer.mergeWays(before, options);
-        t.deepEqual(result, after, `${fixture  } output matches expected result`);
+        deepEqual(result, after, `${fixture} output matches expected result`);
     });
 
     t.end();
