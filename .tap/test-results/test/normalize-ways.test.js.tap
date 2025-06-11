@@ -1,0 +1,292 @@
+TAP version 14
+# Subtest: normalize-ways cli
+    not ok 1 - did not throw an error
+      ---
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 19
+        columnNumber: 11
+        isToplevel: true
+      stack: |
+        test/normalize-ways.test.js:19:11
+      source: >2
+      
+            exec(cmd, (err, stdout, stderr) => {
+                t.notOk(err, 'did not throw an error');
+        ----------^
+                t.notOk(stderr, 'did not write to stderr');
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 541, 'Good number of files created.');
+      ...
+    
+    not ok 2 - did not write to stderr
+      ---
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 20
+        columnNumber: 11
+        isToplevel: true
+      stack: |
+        test/normalize-ways.test.js:20:11
+      source: >2
+            exec(cmd, (err, stdout, stderr) => {
+                t.notOk(err, 'did not throw an error');
+                t.notOk(stderr, 'did not write to stderr');
+        ----------^
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 541, 'Good number of files created.');
+                const a = fs.readFileSync(path.join(__dirname, '../test_output/02132212323223.json'), {encoding: 'utf8'});
+      ...
+    
+    not ok 3 - t.equals is not a function
+      ---
+      stack: |
+        test/normalize-ways.test.js:21:11
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 21
+        columnNumber: 11
+      type: TypeError
+      tapCaught: uncaughtException
+      source: >2
+                t.notOk(err, 'did not throw an error');
+                t.notOk(stderr, 'did not write to stderr');
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 541, 'Good number of files created.');
+        ----------^
+                const a = fs.readFileSync(path.join(__dirname, '../test_output/02132212323223.json'), {encoding: 'utf8'});
+                const b = fs.readFileSync(path.join(__dirname, 'fixtures/normalize-ways/02132212323223.json'), {encoding: 'utf8'});
+      ...
+    
+    1..3
+not ok 1 - normalize-ways cli # time=181.987ms
+  ---
+  at:
+    fileName: test/normalize-ways.test.js
+    lineNumber: 11
+    columnNumber: 1
+    typeName: Object
+  source: |
+    const execSync = require('child_process').execSync;
+  
+    test('normalize-ways cli', (t) => {
+    ^
+        execSync(`mkdir -p ${  path.join(__dirname, '../test_output')}`);
+        const cmd = `node ${  path.join(__dirname, '../bin/normalize-ways')
+  ...
+
+# Subtest: normalize-ways cli with bigInt ids
+    not ok 1 - did not throw an error
+      ---
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 38
+        columnNumber: 11
+        isToplevel: true
+      stack: |
+        test/normalize-ways.test.js:38:11
+      source: >2
+      
+            exec(cmd, (err, stdout, stderr) => {
+                t.notOk(err, 'did not throw an error');
+        ----------^
+                t.notOk(stderr, 'did not write to stderr');
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 1, 'Good number of files created.');
+      ...
+    
+    not ok 2 - did not write to stderr
+      ---
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 39
+        columnNumber: 11
+        isToplevel: true
+      stack: |
+        test/normalize-ways.test.js:39:11
+      source: >2
+            exec(cmd, (err, stdout, stderr) => {
+                t.notOk(err, 'did not throw an error');
+                t.notOk(stderr, 'did not write to stderr');
+        ----------^
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 1, 'Good number of files created.');
+                const a = fs.readFileSync(path.join(__dirname, '../test_output/13300211231112.json'), {encoding: 'utf8'});
+      ...
+    
+    not ok 3 - t.equals is not a function
+      ---
+      stack: |
+        test/normalize-ways.test.js:40:11
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 40
+        columnNumber: 11
+      type: TypeError
+      tapCaught: uncaughtException
+      source: >2
+                t.notOk(err, 'did not throw an error');
+                t.notOk(stderr, 'did not write to stderr');
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 1, 'Good number of files created.');
+        ----------^
+                const a = fs.readFileSync(path.join(__dirname, '../test_output/13300211231112.json'), {encoding: 'utf8'});
+                const b = fs.readFileSync(path.join(__dirname, 'fixtures/normalize-ways/13300211231112.json'), {encoding: 'utf8'});
+      ...
+    
+    1..3
+not ok 2 - normalize-ways cli with bigInt ids # time=82.702ms
+  ---
+  at:
+    fileName: test/normalize-ways.test.js
+    lineNumber: 30
+    columnNumber: 1
+    typeName: Object
+  source: |
+    });
+  
+    test('normalize-ways cli with bigInt ids', (t) => {
+    ^
+        execSync(`mkdir -p ${  path.join(__dirname, '../test_output')}`);
+        const cmd = `node ${  path.join(__dirname, '../bin/normalize-ways')
+  ...
+
+# Subtest: normalize-ways cli with tricky boundary way
+    not ok 1 - did not throw an error
+      ---
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 57
+        columnNumber: 11
+        isToplevel: true
+      stack: |
+        test/normalize-ways.test.js:57:11
+      source: >2
+      
+            exec(cmd, (err, stdout, stderr) => {
+                t.notOk(err, 'did not throw an error');
+        ----------^
+                t.notOk(stderr, 'did not write to stderr');
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 2, 'Good number of files created.');
+      ...
+    
+    not ok 2 - did not write to stderr
+      ---
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 58
+        columnNumber: 11
+        isToplevel: true
+      stack: |
+        test/normalize-ways.test.js:58:11
+      source: >2
+            exec(cmd, (err, stdout, stderr) => {
+                t.notOk(err, 'did not throw an error');
+                t.notOk(stderr, 'did not write to stderr');
+        ----------^
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 2, 'Good number of files created.');
+      ...
+    
+    not ok 3 - t.equals is not a function
+      ---
+      stack: |
+        test/normalize-ways.test.js:59:11
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 59
+        columnNumber: 11
+      type: TypeError
+      tapCaught: uncaughtException
+      source: >2
+                t.notOk(err, 'did not throw an error');
+                t.notOk(stderr, 'did not write to stderr');
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 2, 'Good number of files created.');
+        ----------^
+      
+                let a = JSON.parse(fs.readFileSync(path.join(__dirname, '../test_output/03201011120.json'), {encoding: 'utf8'}));
+      ...
+    
+    1..3
+not ok 3 - normalize-ways cli with tricky boundary way # time=81.189ms
+  ---
+  at:
+    fileName: test/normalize-ways.test.js
+    lineNumber: 49
+    columnNumber: 1
+    typeName: Object
+  source: |
+    });
+  
+    test('normalize-ways cli with tricky boundary way', (t) => {
+    ^
+        execSync(`mkdir -p ${  path.join(__dirname, '../test_output')}`);
+        const cmd = `node ${  path.join(__dirname, '../bin/normalize-ways')
+  ...
+
+# Subtest: normalize-ways cli with openLR
+    not ok 1 - did not throw an error
+      ---
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 81
+        columnNumber: 11
+        isToplevel: true
+      stack: |
+        test/normalize-ways.test.js:81:11
+      source: >2
+      
+            exec(cmd, (err, stdout, stderr) => {
+                t.notOk(err, 'did not throw an error');
+        ----------^
+                t.notOk(stderr, 'did not write to stderr');
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 2, 'Good number of files created.');
+      ...
+    
+    not ok 2 - did not write to stderr
+      ---
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 82
+        columnNumber: 11
+        isToplevel: true
+      stack: |
+        test/normalize-ways.test.js:82:11
+      source: >2
+            exec(cmd, (err, stdout, stderr) => {
+                t.notOk(err, 'did not throw an error');
+                t.notOk(stderr, 'did not write to stderr');
+        ----------^
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 2, 'Good number of files created.');
+      ...
+    
+    not ok 3 - t.equals is not a function
+      ---
+      stack: |
+        test/normalize-ways.test.js:83:11
+      at:
+        fileName: test/normalize-ways.test.js
+        lineNumber: 83
+        columnNumber: 11
+      type: TypeError
+      tapCaught: uncaughtException
+      source: >2
+                t.notOk(err, 'did not throw an error');
+                t.notOk(stderr, 'did not write to stderr');
+                t.equals(fs.readdirSync(path.join(__dirname, '../test_output')).length, 2, 'Good number of files created.');
+        ----------^
+      
+                const outputA = [];
+      ...
+    
+    1..3
+not ok 4 - normalize-ways cli with openLR # time=80.479ms
+  ---
+  at:
+    fileName: test/normalize-ways.test.js
+    lineNumber: 73
+    columnNumber: 1
+    typeName: Object
+  source: |
+    });
+  
+    test('normalize-ways cli with openLR', (t) => {
+    ^
+        execSync(`mkdir -p ${  path.join(__dirname, '../test_output')}`);
+        const cmd = `node ${  path.join(__dirname, '../bin/normalize-ways')
+  ...
+
+1..4

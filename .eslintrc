@@ -1,7 +1,0 @@
-{
-  "extends": "mourner",
-  "rules": {
-    "indent": ["error", 2],
-    "no-loop-func": 0
-  }
-}

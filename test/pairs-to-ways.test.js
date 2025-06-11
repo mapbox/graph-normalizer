@@ -1,38 +1,38 @@
-'use strict';
-
-var test = require('tap').test;
-var pairsToWays = require('../lib/pairs-to-ways');
-var fs = require('fs');
-var path = require('path');
-
-var linestring = require('turf-linestring');
 
 
-test('pairs-to-ways', function (t) {
-  var before = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/pairs-to-ways/', 'before')));
-  var after = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/pairs-to-ways/', 'after')));
+const test = require('tap').test;
+const pairsToWays = require('../lib/pairs-to-ways');
+const fs = require('fs');
+const path = require('path');
 
-  var result = pairsToWays(before);
+const linestring = require('turf-linestring');
 
-  t.deepEqual(result, after, 'output matches expected result');
-  t.end();
+
+test('pairs-to-ways', (t) => {
+    const before = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/pairs-to-ways/', 'before')));
+    const after = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/pairs-to-ways/', 'after')));
+
+    const result = pairsToWays(before);
+
+    t.deepEqual(result, after, 'output matches expected result');
+    t.end();
 });
 
-test('pairs-to-ways second test', function (t) {
-  var before = [{'coords': [[-73.652215, 40.624132], [-73.652344, 40.62412]], 'ids': ['2982064778', '2982064775']}, {'coords': [[-73.652344, 40.62412], [-73.652446, 40.624124]], 'ids': ['2982064775', '2982064777']}, {'coords': [[-73.652446, 40.624124], [-73.652537, 40.624144]], 'ids': ['2982064777', '261408719']}, {'coords': [[-73.652537, 40.624144], [-73.654897, 40.624816]], 'ids': ['261408719', '261386882']}];
-  var after = [linestring([[-73.652215, 40.624132], [-73.652344, 40.62412], [-73.652446, 40.624124], [-73.652537, 40.624144], [-73.654897, 40.624816]], {refs: ['2982064778', '2982064775', '2982064777', '261408719', '261386882']})];
+test('pairs-to-ways second test', (t) => {
+    let before = [{'coords': [[-73.652215, 40.624132], [-73.652344, 40.62412]], 'ids': ['2982064778', '2982064775']}, {'coords': [[-73.652344, 40.62412], [-73.652446, 40.624124]], 'ids': ['2982064775', '2982064777']}, {'coords': [[-73.652446, 40.624124], [-73.652537, 40.624144]], 'ids': ['2982064777', '261408719']}, {'coords': [[-73.652537, 40.624144], [-73.654897, 40.624816]], 'ids': ['261408719', '261386882']}];
+    let after = [linestring([[-73.652215, 40.624132], [-73.652344, 40.62412], [-73.652446, 40.624124], [-73.652537, 40.624144], [-73.654897, 40.624816]], {refs: ['2982064778', '2982064775', '2982064777', '261408719', '261386882']})];
 
 
-  var result = pairsToWays(before);
+    let result = pairsToWays(before);
 
-  t.deepEqual(result, after, 'output matches expected result');
+    t.deepEqual(result, after, 'output matches expected result');
 
-  before = [{'coords': [[-73.652215, 40.624132], [-73.652344, 40.62412]], 'ids': ['2982064778', '2982064775']}];
-  after = [linestring([[-73.652215, 40.624132], [-73.652344, 40.62412]], {refs: ['2982064778', '2982064775']})];
+    before = [{'coords': [[-73.652215, 40.624132], [-73.652344, 40.62412]], 'ids': ['2982064778', '2982064775']}];
+    after = [linestring([[-73.652215, 40.624132], [-73.652344, 40.62412]], {refs: ['2982064778', '2982064775']})];
 
-  result = pairsToWays(before);
+    result = pairsToWays(before);
 
-  t.deepEqual(result, after, 'short output matches expected result');
+    t.deepEqual(result, after, 'short output matches expected result');
 
-  t.end();
+    t.end();
 });

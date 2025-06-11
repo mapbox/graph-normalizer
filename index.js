@@ -1,11 +1,11 @@
-'use strict';
 
-var mergeWays = require('./lib/merge-ways');
-var splitWays = require('./lib/split-ways');
 
-var graphNormalizer = {
-  mergeWays: mergeWays,
-  splitWays: splitWays
+const mergeWays = require('./lib/merge-ways');
+const splitWays = require('./lib/split-ways');
+
+const graphNormalizer = {
+    mergeWays,
+    splitWays
 };
 
 module.exports = graphNormalizer;

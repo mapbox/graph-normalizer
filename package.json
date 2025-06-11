@@ -5,12 +5,12 @@
   "bin": "./bin/normalize-ways",
   "main": "./index.js",
   "engines": {
-    "node": ">=10"
+    "node": "24.2.0"
   },
   "scripts": {
     "test": "npm run lint && tap test/*.test.js",
     "lint": "eslint '*.js' './**/*.js'",
-    "fix": "eslint --fix '*.js' './**/*.js'",
+    "lint:fix": "eslint --fix '*.js' './**/*.js'",
     "bench": "for f in `ls ./bench/*.bench.js`; do node $f; done"
   },
   "repository": {
@@ -23,22 +23,20 @@
   "author": "benjamintd",
   "license": "ISC",
   "dependencies": {
-    "@mapbox/geojson-lr": "^1.0.0",
     "byline": "^5.0.0",
-    "concat-stream": "^1.5.2",
-    "graceful-fs": "^4.1.9",
-    "json-bigint": "^1.0.0",
-    "lodash.clonedeep": "^4.5.0",
-    "minimist": "^1.2.0",
-    "through2": "^2.0.1",
+    "concat-stream": "^2.0.0",
+    "deep-equal": "^2.2.3",
+    "graceful-fs": "^4.2.11",
+    "minimist": "^1.2.6",
+    "through2": "^4.0.2",
     "tile-cover": "^3.0.1",
     "turf-linestring": "^1.0.2"
   },
   "devDependencies": {
-    "benchmark": "^2.1.2",
-    "eslint": "^3.6.1",
-    "eslint-config-mourner": "^2.0.1",
-    "tap": "^7.1.2"
+    "benchmark": "^2.1.4",
+    "eslint": "^9.28.0",
+    "eslint-config-mourner": "^4.0.2",
+    "tap": "^21.1.0"
   },
   "bugs": {
     "url": "https://github.com/mapbox/graph-normalizer/issues"

@@ -1,0 +1,243 @@
+{
+  "date": "2025-06-11T15:54:55.377Z",
+  "argv": [
+    "/opt/homebrew/Cellar/node/23.9.0/bin/node",
+    "/Users/jordanrousseau/development/graph-normalizer/test/index-way.test.js"
+  ],
+  "execArgv": [
+    "--import=file:///Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/typescript/dist/esm/import.mjs",
+    "--import=file:///Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/import.mjs",
+    "--enable-source-maps",
+    "--import=file:///Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/processinfo/dist/esm/import.mjs"
+  ],
+  "NODE_OPTIONS": "\"--import=file:///Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/processinfo/dist/esm/import.mjs\"",
+  "cwd": "/Users/jordanrousseau/development/graph-normalizer",
+  "pid": 7027,
+  "ppid": 7026,
+  "parent": null,
+  "uuid": "15e7bd32-f76d-443f-8b18-7506a8f8ebf0",
+  "files": [
+    "/Users/jordanrousseau/development/graph-normalizer/test/index-way.test.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/typescript/dist/esm/import.mjs",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@isaacs/ts-node-temp-fork-for-pr-2009/import.mjs",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@isaacs/ts-node-temp-fork-for-pr-2009/import-loader.mjs",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/import.mjs",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/mock-service.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/dist/esm/index.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/index.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/is-relative-require.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/export-line.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/munge-mocks.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/resolve-mock-entry-point.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/service-key.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/dist/esm/call-site-like.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/dist/esm/require-resolve.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/get-all-conditional-values.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/get-all-conditions.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/get-unique-condition-sets.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-all-exports.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-all-local-imports.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-conditional-value.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-import.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/is-windows.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/get-conditional-values-list.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/errors.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/file-exists.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/dist/esm/parse.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-package-import.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/to-file-url.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/to-path.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-dependency-export.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/get-named-exports-list.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/read-pkg.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-export.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/star-glob.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/find-dep-package.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/walk-up-path/dist/esm/index.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/find-star-match.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/read-json.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/index.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/index.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/glob.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/has-magic.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/ignore.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/pattern.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/path-scurry/dist/esm/index.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/walker.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/assert-valid-pattern.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/ast.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/escape.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/unescape.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/brace-expressions.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/path-scurry/node_modules/lru-cache/dist/esm/index.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/minipass/dist/esm/index.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/processor.js",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/loader.mjs",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/hooks.mjs",
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/mock-service-client.js",
+    "/Users/jordanrousseau/development/graph-normalizer/lib/index-way.js"
+  ],
+  "sources": {
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/typescript/dist/esm/import.mjs": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/typescript/src/import.mts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/import.mjs": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/src/import.mts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/mock-service.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/src/mock-service.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/dist/esm/index.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/src/index.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/index.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/index.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/is-relative-require.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/is-relative-require.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/export-line.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/src/export-line.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/munge-mocks.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/src/munge-mocks.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/resolve-mock-entry-point.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/src/resolve-mock-entry-point.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/dist/esm/service-key.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/mock/src/service-key.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/dist/esm/call-site-like.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/src/call-site-like.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/dist/esm/require-resolve.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/src/require-resolve.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/get-all-conditional-values.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/get-all-conditional-values.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/get-all-conditions.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/get-all-conditions.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/get-unique-condition-sets.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/get-unique-condition-sets.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-all-exports.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/resolve-all-exports.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-all-local-imports.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/resolve-all-local-imports.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-conditional-value.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/resolve-conditional-value.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-import.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/resolve-import.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/is-windows.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/is-windows.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/get-conditional-values-list.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/get-conditional-values-list.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/errors.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/errors.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/file-exists.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/file-exists.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/dist/esm/parse.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/@tapjs/stack/src/parse.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-package-import.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/resolve-package-import.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/to-file-url.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/to-file-url.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/to-path.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/to-path.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-dependency-export.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/resolve-dependency-export.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/get-named-exports-list.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/get-named-exports-list.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/read-pkg.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/read-pkg.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/resolve-export.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/resolve-export.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/star-glob.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/star-glob.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/find-dep-package.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/find-dep-package.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/walk-up-path/dist/esm/index.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/walk-up-path/src/index.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/find-star-match.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/find-star-match.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/dist/esm/read-json.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/resolve-import/src/read-json.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/index.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/src/index.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/index.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/src/index.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/glob.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/src/glob.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/has-magic.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/src/has-magic.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/ignore.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/src/ignore.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/pattern.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/src/pattern.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/path-scurry/dist/esm/index.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/path-scurry/src/index.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/walker.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/src/walker.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/assert-valid-pattern.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/src/assert-valid-pattern.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/ast.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/src/ast.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/escape.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/src/escape.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/unescape.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/src/unescape.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/dist/esm/brace-expressions.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/node_modules/minimatch/src/brace-expressions.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/path-scurry/node_modules/lru-cache/dist/esm/index.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/path-scurry/node_modules/lru-cache/src/index.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/minipass/dist/esm/index.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/minipass/src/index.ts"
+    ],
+    "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/dist/esm/processor.js": [
+      "/Users/jordanrousseau/development/graph-normalizer/node_modules/glob/src/processor.ts"
+    ]
+  },
+  "root": "15e7bd32-f76d-443f-8b18-7506a8f8ebf0",
+  "externalID": "test/index-way.test.js",
+  "code": 1,
+  "signal": null,
+  "runtime": 273.197833
+}

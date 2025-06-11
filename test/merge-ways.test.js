@@ -1,22 +1,22 @@
-'use strict';
 
-var test = require('tap').test;
-var normalizer = require('../');
-var fs = require('fs');
-var path = require('path');
 
-test('merge-ways', function (t) {
-  var fixtures = fs.readdirSync(path.join(__dirname, './fixtures/merge-ways/'));
+const test = require('tap').test;
+const normalizer = require('../');
+const fs = require('fs');
+const path = require('path');
 
-  fixtures.forEach(function (fixture) {
-    var options = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/merge-ways/', fixture, 'options')));
-    if (options === 'undefined') options = undefined;
-    var before = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/merge-ways/', fixture, 'before')));
-    var after = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/merge-ways/', fixture, 'after')));
+test('merge-ways', (t) => {
+    const fixtures = fs.readdirSync(path.join(__dirname, './fixtures/merge-ways/'));
 
-    var result = normalizer.mergeWays(before, options);
-    t.deepEqual(result, after, fixture + ' output matches expected result');
-  });
+    fixtures.forEach((fixture) => {
+        let options = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/merge-ways/', fixture, 'options')));
+        if (options === 'undefined') options = undefined;
+        const before = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/merge-ways/', fixture, 'before')));
+        const after = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/merge-ways/', fixture, 'after')));
 
-  t.end();
+        const result = normalizer.mergeWays(before, options);
+        t.deepEqual(result, after, `${fixture  } output matches expected result`);
+    });
+
+    t.end();
 });

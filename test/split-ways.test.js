@@ -1,21 +1,21 @@
-'use strict';
 
-var test = require('tap').test;
-var normalizer = require('../');
-var fs = require('fs');
-var path = require('path');
 
-test('split-ways', function (t) {
-  var fixtures = fs.readdirSync(path.join(__dirname, './fixtures/split-ways/'));
+const test = require('tap').test;
+const normalizer = require('../');
+const fs = require('fs');
+const path = require('path');
 
-  fixtures.forEach(function (fixture) {
-    var before = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/split-ways/', fixture, 'before')));
-    var after = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/split-ways/', fixture, 'after')));
+test('split-ways', (t) => {
+    const fixtures = fs.readdirSync(path.join(__dirname, './fixtures/split-ways/'));
 
-    var result = normalizer.splitWays(before);
+    fixtures.forEach((fixture) => {
+        const before = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/split-ways/', fixture, 'before')));
+        const after = JSON.parse(fs.readFileSync(path.join(__dirname, './fixtures/split-ways/', fixture, 'after')));
 
-    t.deepEqual(result, after, fixture + ' output matches expected result');
-  });
+        const result = normalizer.splitWays(before);
 
-  t.end();
+        t.deepEqual(result, after, `${fixture  } output matches expected result`);
+    });
+
+    t.end();
 });
