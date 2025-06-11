@@ -1,5 +1,5 @@
 
-/* eslint-disable no-sync */
+
 const test = require('tap').test;
 const fs = require('fs');
 const path = require('path');
