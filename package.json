@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/graph-normalizer",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Takes nodes and ways and turn them into a normalized graph of intersections and ways.",
   "main": "./index.js",
   "engines": {
@@ -42,5 +42,8 @@
   "homepage": "https://github.com/mapbox/graph-normalizer#readme",
   "directories": {
     "test": "test"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
